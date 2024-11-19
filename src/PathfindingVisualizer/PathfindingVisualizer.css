@@ -1,0 +1,85 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.grid>div {
+  display: flex;
+}
+
+.node {
+  width: 15px;
+  /* Reduce width */
+  height: 15px;
+  /* Reduce height */
+  border: 1px solid #ccc;
+  /* Optional: Add a border */
+  box-sizing: border-box;
+}
+
+.node-start {
+  background-color: green;
+}
+
+.node-finish {
+  background-color: red;
+}
+
+.node-wall {
+  background-color: black;
+}
+
+.node-visited {
+  background-color: lightblue;
+}
+
+.node-shortest-path {
+  background-color: yellow;
+}
+
+/* Container for buttons to control alignment */
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Style for each button */
+.button {
+  background-color: #007BFF;
+  /* Blue */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover state for buttons */
+.button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state for buttons */
+.button:active {
+  background-color: #003f7f;
+  transform: translateY(2px);
+}
+
+/* Disabled button state */
+.button:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
