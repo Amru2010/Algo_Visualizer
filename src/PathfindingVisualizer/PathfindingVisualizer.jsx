@@ -76,7 +76,7 @@ const PathfindingVisualizer = () => {
   for (let i = 0; i <= visitedNodesInOrder.length; i++) {
     if (i === visitedNodesInOrder.length) {
       setTimeout(() => {
-        animateShortestPath(nodesInShortestPathOrder); // Call shortest path animation
+        animateShortestPath(nodesInShortestPathOrder); 
       }, 10 * i);
       return;
     }
@@ -114,7 +114,7 @@ const PathfindingVisualizer = () => {
   const startNodeObj = grid[startNode.row][startNode.col];
   const finishNodeObj = grid[finishNode.row][finishNode.col];
 
-  const visitedNodesInOrder = aStar(grid, startNodeObj, finishNodeObj); // Use A* function
+  const visitedNodesInOrder = aStar(grid, startNodeObj, finishNodeObj); 
   const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNodeObj);
 
   animateAStar(visitedNodesInOrder, nodesInShortestPathOrder);
@@ -122,38 +122,32 @@ const PathfindingVisualizer = () => {
 
 
   const handleReset = () => {
-    // Create the initial grid and reset the visited status of all nodes
     const initialGrid = getInitialGrid();
     setGrid(initialGrid);
     setStartNode({ row: 10, col: 15 });
     setFinishNode({ row: 10, col: 75 });
     setTimer(0);
 
-    // Reset the visualization of the grid, clearing the colors for visited nodes and path nodes
     resetNodeColors();
   };
-
-  // Helper function to reset the colors of the nodes (i.e., reset to unvisited state)
+  
   const resetNodeColors = () => {
-  // Loop through each node in the grid and reset its class name
   for (let row = 0; row < grid.length; row++) {
     for (let col = 0; col < grid[row].length; col++) {
       const node = grid[row][col];
       const nodeElement = document.getElementById(`node-${node.row}-${node.col}`);
 
-      // Reset to default 'node' class (unvisited state)
       if (nodeElement) {
         nodeElement.className = 'node';
       }
 
-      // Apply specific classes to start and finish nodes
       if (node.isStart) {
         if (nodeElement) {
-          nodeElement.classList.add('node-start'); // Green start node
+          nodeElement.classList.add('node-start'); 
         }
       } else if (node.isFinish) {
         if (nodeElement) {
-          nodeElement.classList.add('node-finish'); // Red finish node
+          nodeElement.classList.add('node-finish'); 
         }
       }
     }
@@ -173,7 +167,7 @@ const PathfindingVisualizer = () => {
     <>
       <div className="button-container">
         <button className="button" onClick={visualizeDijkstra}>Visualize Dijkstra's Algorithm</button>
-        <button className="button" onClick={visualizeAStar}>Visualize A-Star Algorithm</button>
+        {/* <button className="button" onClick={visualizeAStar}>Visualize A-Star Algorithm</button> */}
         <button className="button" onClick={handleReset}>Reset</button>
       </div>
       <div className="timer-container">
